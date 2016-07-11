@@ -10,6 +10,7 @@ class ArticleList extends Component {
             <Article article = {article}
                 isOpen = {article.id == this.props.openElementId}
                 openArticle = {this.props.openElement(article.id)}
+                closeArticle = {this.props.closeElement(article.id)}
             />
         </li>)
         return (

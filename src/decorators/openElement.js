@@ -12,7 +12,18 @@ export default (Component) => class DecoratedComponent extends React.Component {
         })
     }
 
+    closeElement = (id) => ev => {
+        if (ev) ev.preventDefault()
+        this.setState({
+            openElementId: null
+        })
+    }
+
     render() {
-        return <Component {...this.props} openElementId = {this.state.openElementId} openElement = {this.openElement}/>
+        return <Component {...this.props}
+        openElementId = {this.state.openElementId} 
+        openElement = {this.openElement}
+        closeElement = {this.closeElement}
+        />
     }
 }
