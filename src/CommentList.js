@@ -4,20 +4,20 @@ import toggleOpen from './decorators/toggleOpen'
 
 class CommentList extends Component {
 
-    componentWillMount() {
-        console.log('---', this.props)
-    }
-    componentDidMount() {
-        console.log('---', 'mounted', this.refs.toggler)
-    }
-
+    // componentWillMount() {
+    //     console.log('---', this.props)
+    // }
+    // componentDidMount() {
+    //     console.log('---', 'mounted', this.refs.toggler)
+    // }
+    //
     componentWillReceiveProps(nextProps) {
         console.log('---', this.props.isOpen, nextProps.isOpen)
     }
-
-    componentWillUnmount() {
-        console.log('---', 'unmounting')
-    }
+    //
+    // componentWillUnmount() {
+    //     console.log('---', 'unmounting')
+    // }
 
     render() {
         const { comments, isOpen, toggleOpen } = this.props
