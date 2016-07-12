@@ -4,7 +4,7 @@ export default (Component) => class DecoratedComponent extends React.Component {
     state = {
         openElementId: null
     }
-
+    //хорошо, но удобнее было бы сделать еще toggleOpen
     openElement = (id) => ev => {
         if (ev) ev.preventDefault()
         this.setState({
