@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Comment from './Comment'
-import toggleOpen from './decorators/toggleOpen'
+import toggleOpen from '../decorators/toggleOpen'
 
 class CommentList extends Component {
 
@@ -19,8 +19,13 @@ class CommentList extends Component {
     //     console.log('---', 'unmounting')
     // }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.isOpen != this.props.isOpen
+    }
+
     render() {
         const { comments, isOpen, toggleOpen } = this.props
+
         if (!comments || !comments.length) return <h3>no comments yet</h3>
 
         const commentItems = comments.map(comment => <li key = {comment.id}><Comment comment = {comment}/></li>)

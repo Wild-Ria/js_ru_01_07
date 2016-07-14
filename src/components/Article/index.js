@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import CommentList from './CommentList'
+import CommentList from './../CommentList'
+import CSSTransitionGroup from 'react-addons-css-transition-group'
+import './style.css'
 
 class Article extends Component {
 
@@ -21,9 +23,11 @@ class Article extends Component {
             const body = isOpen ? <section>{ text } <CommentList comments = {comments} /></section> : null
             // const titleFunction = isOpen ? closeArticle : openArticle
             return (
-                <div>
-                    <h1 onClick = { isOpen ? closeArticle : openArticle }>{ title }</h1>
-                    {body}
+                <div className="article">
+                    <h1 onClick = {openArticle}>{ title }</h1>
+                    <CSSTransitionGroup transitionName="article" transitionEnterTimeout={500} transitionLeaveTimeout = {300}>
+                        {body}
+                    </CSSTransitionGroup>
                 </div>
             )
     }
