@@ -17,6 +17,7 @@ class ArticleList extends Component {
 
     constructor(props) {
       super(props);
+      //можно и так, но как по мне - лучше просто описать их через () =>
       this.handleDayClick = this.handleDayClick.bind(this);
       this.handleResetClick = this.handleResetClick.bind(this);
     }
@@ -55,6 +56,7 @@ class ArticleList extends Component {
                     value = {this.state.selectedArticles}
                     onChange = {this.handleSelectChange}
                 />
+                {/*Не стоит писать подобную логику в JSX, лучше вынести в отдельную переменную*/}
                 {!from && !to && <p>Please select the <strong>first day</strong>.</p>}
                 {from && !to && <p>Please select the <strong>last day</strong>.</p>}
                 {from && to &&
